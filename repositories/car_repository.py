@@ -1,7 +1,7 @@
 from fastapi import Depends
 from sqlmodel import Session, select
 
-from repositories.models.car import Car
+from models.car import Car
 from repositories.schemas import get_session
 
 

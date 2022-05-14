@@ -2,7 +2,7 @@ from fastapi import Depends
 
 from repositories.car_repository import CarRepository
 from repositories.trip_repository import TripRepository
-from repositories.models.trip import Trip
+from models.trip import Trip
 
 
 class TripService:

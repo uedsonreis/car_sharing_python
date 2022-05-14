@@ -1,7 +1,8 @@
 from fastapi import HTTPException, Depends, APIRouter
+from starlette.status import HTTP_400_BAD_REQUEST
 
-from repositories.models.trip import TripInput, Trip
-from repositories.models.car import CarInput, Car
+from models.trip import TripInput, Trip
+from models.car import CarInput, Car
 from services.car_service import CarService
 from services.trip_service import TripService
 
@@ -60,6 +61,10 @@ def add_trip(car_id: int, body: TripInput, service: TripService = Depends(TripSe
     """Store a new trip into a car."""
 
     trip = Trip.from_orm(body, update={'car_id': car_id})
+
+    if trip.end < trip.start:
+        raise HTTPException(detail="Trip end before start", status_code=HTTP_400_BAD_REQUEST)
+
     trip = service.create(car_id, trip)
 
     if trip:

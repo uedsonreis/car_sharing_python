@@ -1,7 +1,7 @@
 from fastapi import Depends
 from sqlmodel import Session
 
-from repositories.models.trip import Trip
+from models.trip import Trip
 from repositories.schemas import get_session
 
 

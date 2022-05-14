@@ -1,7 +1,7 @@
 from fastapi import Depends
 
 from repositories.car_repository import CarRepository
-from repositories.models.car import Car
+from models.car import Car
 
 
 class CarService:

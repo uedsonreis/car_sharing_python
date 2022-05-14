@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, Field, Relationship
 
-from repositories.models.trip import Trip
+from models.trip import Trip
 
 
 class CarInput(SQLModel):
